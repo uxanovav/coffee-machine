@@ -1,0 +1,71 @@
+body{
+    margin: 0;
+}
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 100%;
+    border: 1px solid gray;
+}
+
+.header-section {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    border: 1px solid red;
+    padding: 5px;
+}
+
+.screen {
+    width: 75%;
+    border: 1px black solid;
+}
+
+.cancel-button {
+    width: 25%;
+    height: 80px;
+    border: 1px solid black;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid red;
+    padding: 5px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    border: black 1px solid;
+    width: 330px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.cup-section {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+    padding: 5px;
+}
+
+.cup {
+    width: 35%;
+    height: 250px;
+    border: black 1px solid;
+}
