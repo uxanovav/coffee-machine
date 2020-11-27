@@ -1,4 +1,4 @@
-export const options = {
+export let options = {
     middlecup: {
         count: 5,
         value: 250
@@ -23,7 +23,7 @@ export const options = {
         volume:300,
         price:150
     },
-    vanillacappuccino: {
+    vanillaсappuccino: {
         volume:300,
         price:150
     },
@@ -32,11 +32,20 @@ export const options = {
         price:100
     },
     milk: {
+        count: 1000,
         volume:50,
         price:25
     },
-    syrop: {
+    cherrysyrop: {
+        count: 500,
         volume:50,
         price:35
+    },
+    vanillasyrop: {
+        count: 500
+    },
+    bananasyrop: {
+        count: 500
     }
+
 }
