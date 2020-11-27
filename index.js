@@ -4,6 +4,7 @@ const additionalDrinkButtons = document.querySelectorAll('.additional-drink')
 const screen = document.querySelector('.screen');
 const cancelButton = document.querySelector('.cancel-button');
 const cup = document.querySelector('.cup');
+const pay = document.querySelector('.paybutton');
 
 let drink = {
     mainDrink: '',
@@ -19,7 +20,17 @@ let drink = {
 function logger() {
     console.log(drink, '\n', options.milk.count);
 }
-cancelButton.addEventListener('click', resetDrink)
+
+pay.addEventListener('click', acceptPayment);
+cancelButton.addEventListener('click', resetDrink);
+mainDrinkButtons.forEach(element => {
+    element.addEventListener('click', addMainDrink);
+});
+
+additionalDrinkButtons.forEach(element => {
+    element.addEventListener('click', addAdditionalDrink);
+})
+
 
 function showScreen() {
     screen.innerHTML = '';
@@ -34,6 +45,19 @@ function showScreen() {
 
 }
 
+function acceptPayment() {
+    options.cherrysyrop.count -= drink.totalMilkVolume;
+    options.bananasyrop.count -= drink.totalBananaSyrVolume;
+    options.vanillasyrop.count -= drink.totalVanillaSyrVolume;
+    options.milk.count -= drink.totalMilkVolume;
+    if (drink.selectedCup == 'middlecup'){
+        options.middlecup.count--;
+    } else {
+        options.bigcup.count--;
+    }
+    resetDrink();
+}
+
 function resetDrink() {
     drink.mainDrink = '';
     drink.selectedCup = '';
@@ -46,13 +70,6 @@ function resetDrink() {
     screen.innerHTML = '';
 }
 
-mainDrinkButtons.forEach(element => {
-    element.addEventListener('click', addMainDrink);
-});
-
-additionalDrinkButtons.forEach(element => {
-    element.addEventListener('click', addAdditionalDrink);
-})
 
 function addMainDrink() {
     resetDrink();
@@ -60,6 +77,21 @@ function addMainDrink() {
     drink.mainDrink = this.dataset.key;
     drink.totalVolume = options[`${keyName}`].volume;
     drink.totalPrice = options[`${keyName}`].price;
+    if (keyName == 'bananalatte') {
+        drink.totalBananaSyrVolume += 50;
+    }
+    if (keyName == 'vanillaсappuccino') {
+        drink.totalVanillaSyrVolume += 50;
+    }
+    if (keyName == 'latte') {
+        drink.totalMilkVolume += 100;
+    }
+    if (keyName == 'сappuccino') {
+        drink.totalMilkVolume += 80;
+    }
+    if (keyName == 'flatwhite') {
+        drink.totalMilkVolume += 120;
+    }
     cupSelect();
     showScreen()
     logger();
@@ -70,7 +102,7 @@ function addAdditionalDrink() {
     if (keyName == 'milk' && options.milk.count != 0 && drink.totalVolume < options.bigcup.value - 49) {
         drink.totalVolume += options[`${keyName}`].volume;
         drink.totalPrice += options[`${keyName}`].price;
-        drink.totalMilkVolume++;
+        drink.totalMilkVolume += 50;
         cupSelect();
         showScreen();
         if (drink.mainDrink != '') {
@@ -117,10 +149,10 @@ function addAdditionalDrink() {
             }
         }
     }
-    if (keyName == 'cherrysyrop' && options.cherrysyrop.count != 0 && drink.totalVolume < options.bigcup.value - 49 && drink.totalCherrySyrVolume < 2 && drink.mainDrink != '') {
+    if (keyName == 'cherrysyrop' && options.cherrysyrop.count != 0 && drink.totalVolume < options.bigcup.value - 49 && drink.totalCherrySyrVolume < 100 && drink.mainDrink != '') {
         drink.totalVolume += options[`${keyName}`].volume;
         drink.totalPrice += options[`${keyName}`].price;
-        drink.totalCherrySyrVolume++;
+        drink.totalCherrySyrVolume += 50;
         cupSelect();
         showScreen();
         switch (drink.totalCherrySyrVolume) {

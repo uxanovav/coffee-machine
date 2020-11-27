@@ -21,7 +21,7 @@ export let options = {
     },
     bananalatte: {
         volume:300,
-        price:150
+        price:150,
     },
     vanillaсappuccino: {
         volume:300,

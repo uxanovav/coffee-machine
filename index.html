@@ -10,7 +10,8 @@
     <div class="wrapper">
         <section class="header-section">
             <div class="screen"></div>
-            <div class="cancel-button">ОТМЕНА</div>
+            <div class="price"></div>
+            <div class="paybutton" data-key="pay">ОПЛАТА</div>
         </section>
         <section class="button-section">
             <div class="button main-drink" data-key="espresso">ЭСПРЕССО</div>
@@ -21,10 +22,20 @@
             <div class="button main-drink" data-key="flatwhite">ФЛЭТ УАЙТ</div>
             <div class="button additional-drink" data-key="milk">МОЛОКО</div>
             <div class="button additional-drink" data-key="cherrysyrop">ВИШНЕВЫЙ СИРОП</div>
-            <div class="button paybutton" data-key="pay">ОПЛАТА</div>
+            <div class="cancel-button button">ОТМЕНА</div>
         </section>
         <section class="cup-section">
+            <div class="cups-status">
+                <div class="cup-status">middlecups</div>
+                <div class="cup-status">bigcups</div>
+            </div>
             <div class="cup"></div>
+            <div class="addons-status">
+                <div class="milk">milk</div>
+                <div class="cherry">cherry</div>
+                <div class="vanilla">vanilla</div>
+                <div class="banana">banana</div>
+            </div>
         </section>
         <script src="./index.js" type="module"></script>
     </div>
