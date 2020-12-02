@@ -8,7 +8,20 @@ const pay = document.querySelector('.paybutton');
 const middleCupCounter = document.querySelector('#middlecup-count');
 const bigCupCounter = document.querySelector('#bigcup-count');
 const milkIndicator = document.querySelector('.milk');
-const milkBankVolumePerc = options.milk.count*0.01;
+const milkBankVolumePerc = options.milk.count * 0.01;
+const cherryIndicator = document.querySelector('.cherry');
+const cherryBankVolumePerc = options.cherrysyrop.count * 0.01;
+const vanillaIndicator = document.querySelector('.vanilla');
+const vanillaBankVolumePerc = options.vanillasyrop.count * 0.01;
+const bananaIndicator = document.querySelector('.banana');
+const bananaBankVolumePerc = options.bananasyrop.count * 0.01;
+
+milkIndicator.innerHTML = `${options.milk.count}мл`;
+bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
+cherryIndicator.innerHTML = `${options.cherrysyrop.count}мл`;
+vanillaIndicator.innerHTML = `${options.vanillasyrop.count}мл`;
+
+
 
 let drink = {
     mainDrink: '',
@@ -51,11 +64,11 @@ function showScreen() {
 }
 
 function acceptPayment() {
-    options.cherrysyrop.count -= drink.totalMilkVolume;
+    options.cherrysyrop.count -= drink.totalCherrySyrVolume;
     options.bananasyrop.count -= drink.totalBananaSyrVolume;
     options.vanillasyrop.count -= drink.totalVanillaSyrVolume;
     options.milk.count -= drink.totalMilkVolume;
-    if (drink.selectedCup == 'middlecup'){
+    if (drink.selectedCup == 'middlecup') {
         options.middlecup.count--;
     } else {
         options.bigcup.count--;
@@ -63,7 +76,14 @@ function acceptPayment() {
     resetDrink();
     middleCupCounter.innerHTML = options.middlecup.count;
     bigCupCounter.innerHTML = options.bigcup.count;
-    milkIndicator.style.height = `${(options.milk.count/(milkBankVolumePerc)) - (drink.totalMilkVolume/(milkBankVolumePerc))}%`;
+    milkIndicator.style.height = `${(options.milk.count / milkBankVolumePerc) - (drink.totalMilkVolume / milkBankVolumePerc)}%`;
+    milkIndicator.innerHTML = `${options.milk.count}мл`;
+    bananaIndicator.style.height = `${(options.bananasyrop.count / bananaBankVolumePerc) - (drink.totalBananaSyrVolume / bananaBankVolumePerc)}%`;
+    bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
+    cherryIndicator.style.height = `${(options.cherrysyrop.count / cherryBankVolumePerc) - (drink.totalCherrySyrVolume / cherryBankVolumePerc)}%`;
+    cherryIndicator.innerHTML = `${options.cherrysyrop.count}мл`;
+    vanillaIndicator.style.height = `${(options.vanillasyrop.count / vanillaBankVolumePerc) - (drink.totalVanillaSyrVolume / vanillaBankVolumePerc)}%`;
+    vanillaIndicator.innerHTML = `${options.vanillasyrop.count}мл`;
 }
 
 function resetDrink() {
