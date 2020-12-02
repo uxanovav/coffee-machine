@@ -5,6 +5,10 @@ const screen = document.querySelector('.screen');
 const cancelButton = document.querySelector('.cancel-button');
 const cup = document.querySelector('.cup');
 const pay = document.querySelector('.paybutton');
+const middleCupCounter = document.querySelector('#middlecup-count');
+const bigCupCounter = document.querySelector('#bigcup-count');
+const milkIndicator = document.querySelector('.milk');
+const milkBankVolumePerc = options.milk.count*0.01;
 
 let drink = {
     mainDrink: '',
@@ -42,7 +46,8 @@ function showScreen() {
     screen.append(` Вишневый сироп - ${drink.totalCherrySyrVolume}.`);
     screen.append(` Ванильный сироп - ${drink.totalVanillaSyrVolume}.`);
     screen.append(` Банановый сироп - ${drink.totalBananaSyrVolume}`);
-
+    middleCupCounter.innerHTML = options.middlecup.count;
+    bigCupCounter.innerHTML = options.bigcup.count;
 }
 
 function acceptPayment() {
@@ -56,6 +61,9 @@ function acceptPayment() {
         options.bigcup.count--;
     }
     resetDrink();
+    middleCupCounter.innerHTML = options.middlecup.count;
+    bigCupCounter.innerHTML = options.bigcup.count;
+    milkIndicator.style.height = `${(options.milk.count/(milkBankVolumePerc)) - (drink.totalMilkVolume/(milkBankVolumePerc))}%`;
 }
 
 function resetDrink() {
@@ -173,5 +181,4 @@ function cupSelect() {
     } else {
         drink.selectedCup = 'bigcup';
     }
-    cup.innerHTML = `Средние стаканы - ${options.middlecup.count}. Большие стаканы - ${options.bigcup.count}`;
 }

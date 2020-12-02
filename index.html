@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UxanovavCoffeeMachine</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="wrapper">
         <section class="header-section">
@@ -26,8 +28,16 @@
         </section>
         <section class="cup-section">
             <div class="cups-status">
-                <div class="cup-status">middlecups</div>
-                <div class="cup-status">bigcups</div>
+                <div class="cup-status">
+                    middlecups
+                    <img src="./cup.png" height="80px" alt="cup">
+                    <span id='middlecup-count'></span>
+                </div>
+                <div class="cup-status">
+                    bigcups
+                    <img src="./cup.png" height="100px" alt="cup">
+                    <span id='bigcup-count'></span>
+                </div>
             </div>
             <div class="cup"></div>
             <div class="addons-status">
@@ -40,4 +50,5 @@
         <script src="./index.js" type="module"></script>
     </div>
 </body>
+
 </html>
