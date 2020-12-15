@@ -1,10 +1,10 @@
 export let options = {
     middlecup: {
-        count: 5,
+        count: 2,
         value: 250
     },
     bigcup: {
-        count: 6,
+        count: 2,
         value: 350
     },
     espresso: {
@@ -32,7 +32,7 @@ export let options = {
         price:100
     },
     milk: {
-        count: 1000,
+        count: 200,
         volume:50,
         price:25
     },
