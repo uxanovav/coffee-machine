@@ -131,6 +131,11 @@ function checkStatus() {
       }
     });
   }
+  if (drink.totalVolume + 50 > drink.selectedCup.value) {
+    additionalDrinkButtons.forEach((element) => {
+      element.classList.add("muted");
+    });
+  }
 }
 
 function muteAll() {
