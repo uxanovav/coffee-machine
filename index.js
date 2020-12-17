@@ -131,6 +131,13 @@ function checkStatus() {
       }
     });
   }
+  if (options.cherrysyrop.count <= drink.totalCherrySyrVolume) {
+    additionalDrinkButtons.forEach((element) => {
+      if (element.dataset.key == "cherrysyrop") {
+        element.classList.add("muted");
+      }
+    });
+  }
   if (options.bananasyrop.count < 50) {
     mainDrinkButtons.forEach((element) => {
       if (element.dataset.key == "bananalatte") {
@@ -145,7 +152,7 @@ function checkStatus() {
       }
     });
   }
-  if (drink.totalMilkVolume >= options.milk.count) {
+  if (drink.totalMilkVolume + 50 >= options.milk.count) {
     additionalDrinkButtons.forEach((element) => {
       if (element.dataset.key == "milk") {
         element.classList.add("muted");
@@ -207,7 +214,10 @@ function checkStatus() {
   }
   if (options.milk.count < 100) {
     mainDrinkButtons.forEach((element) => {
-      if (element.dataset.key == "latte") {
+      if (
+        element.dataset.key == "latte" ||
+        element.dataset.key == "bananalatte"
+      ) {
         element.classList.add("muted");
       }
     });
@@ -243,6 +253,7 @@ function addMainDrink() {
   drink.totalPrice = options[`${keyName}`].price;
   if (keyName == "bananalatte") {
     drink.totalBananaSyrVolume += 50;
+    drink.totalMilkVolume += 100;
   }
   if (keyName == "vanillaсappuccino") {
     drink.totalVanillaSyrVolume += 50;
