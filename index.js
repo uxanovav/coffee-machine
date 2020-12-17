@@ -7,19 +7,18 @@ const cup = document.querySelector(".cup");
 const pay = document.querySelector(".paybutton");
 const middleCupCounter = document.querySelector("#middlecup-count");
 const bigCupCounter = document.querySelector("#bigcup-count");
+const progressBar = document.querySelector(".progress-bar");
 const milkIndicator = document.querySelector(".milk");
 const milkBankVolumePerc = options.milk.count * 0.01;
 const cherryIndicator = document.querySelector(".cherry");
 const cherryBankVolumePerc = options.cherrysyrop.count * 0.01;
 const vanillaIndicator = document.querySelector(".vanilla");
-const progressBar = document.querySelector(".progress-bar");
 const vanillaBankVolumePerc = options.vanillasyrop.count * 0.01;
 const bananaIndicator = document.querySelector(".banana");
 const bananaBankVolumePerc = options.bananasyrop.count * 0.01;
 var cupIs = true;
 var customDrink = false;
 var interval = 0;
-
 
 milkIndicator.innerHTML = `${options.milk.count}мл`;
 bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
@@ -72,8 +71,8 @@ function showScreen() {
 function acceptPayment() {
   if (drink.cupSelect != "") {
     drink.selectedCup.count--;
-    createDrink();
     showOptionChange();
+    createDrink();
   }
 }
 
@@ -84,22 +83,18 @@ function showOptionChange() {
     options.milk.count / milkBankVolumePerc -
     drink.totalMilkVolume / milkBankVolumePerc
   }%`;
-  milkIndicator.innerHTML = `${options.milk.count}мл`;
   bananaIndicator.style.height = `${
     options.bananasyrop.count / bananaBankVolumePerc -
     drink.totalBananaSyrVolume / bananaBankVolumePerc
   }%`;
-  bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
   cherryIndicator.style.height = `${
     options.cherrysyrop.count / cherryBankVolumePerc -
     drink.totalCherrySyrVolume / cherryBankVolumePerc
   }%`;
-  cherryIndicator.innerHTML = `${options.cherrysyrop.count}мл`;
   vanillaIndicator.style.height = `${
     options.vanillasyrop.count / vanillaBankVolumePerc -
     drink.totalVanillaSyrVolume / vanillaBankVolumePerc
   }%`;
-  vanillaIndicator.innerHTML = `${options.vanillasyrop.count}мл`;
 }
 
 function createDrink() {
@@ -127,19 +122,32 @@ function createDrink() {
       interval = 5000;
       break;
   }
-  if (customDrink){
-    interval = 8000
+  if (customDrink) {
+    interval = 8000;
   }
   changeProgress();
   checkStatus();
+  muteAll();
 }
 
 function changeProgress() {
   progressBar.style.width = "100%";
-  progressBar.style.transition = `${interval/1000}.0s`;
+  progressBar.style.transition = `${interval / 1000}.0s`;
   setTimeout(() => {
-    progressBar.innerHTML = "<p>Напиток готов!</p>";
+    progressBar.innerHTML = "<p>Ваш напиток готов!</p>";
+    showCup();
   }, interval);
+  milkIndicator.innerHTML = `${options.milk.count}мл`;
+  bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
+  cherryIndicator.innerHTML = `${options.cherrysyrop.count}мл`;
+  vanillaIndicator.innerHTML = `${options.vanillasyrop.count}мл`;
+}
+
+function showCup() {
+  cup.innerHTML = "<img class = 'coffe-cup' src = './cup.png' />"
+  cup.addEventListener('click',() =>{
+    resetDrink();
+  });
 }
 
 function resetDrink() {
@@ -155,12 +163,17 @@ function resetDrink() {
   progressBar.style.width = "0%";
   progressBar.innerHTML = "";
   progressBar.style.transition = `0s`;
+  cup.innerHTML = "";
+  cup.removeEventListener("click",resetDrink,false);
   interval = 0;
   customDrink = false;
   checkStatus();
 }
 
 function checkStatus() {
+  mainDrinkButtons.forEach((element) => {
+    element.classList.remove("muted");
+  });
   if (drink.mainDrink == "") {
     pay.classList.add("muted");
   } else {

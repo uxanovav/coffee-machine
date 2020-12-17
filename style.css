@@ -10,19 +10,12 @@ body {
   border: 1px solid gray;
 }
 
-.muted {
-  background-color: gray;
-  pointer-events: none;
-}
-
 .header-section {
   margin: 0 auto;
   width: 90%;
   display: flex;
-  border: 1px solid red;
   padding: 5px;
 }
-
 
 .price {
   width: 15%;
@@ -32,12 +25,12 @@ body {
 .cancel-button {
   width: 25%;
   height: 80px;
-  border: 1px solid black;
   margin-left: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: tomato;
 }
 
 .button-section {
@@ -46,7 +39,6 @@ body {
   justify-content: space-around;
   margin: 0 auto;
   width: 90%;
-  border: 1px solid red;
   padding: 5px;
 }
 
@@ -55,10 +47,14 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 25px;
-  border: black 1px solid;
   width: 330px;
   height: 150px;
   cursor: pointer;
+  border-radius: 15px;
+  background-color: wheat;
+  box-shadow: 3px 3px 9px 2px #504f4f;
+  color: #1d1b1b;
+  text-shadow: 1px 3px 0 #969696, 1px 5px 2px #aba8a8;
 }
 
 .cup-section {
@@ -66,32 +62,36 @@ body {
   width: 90%;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
   padding: 5px;
 }
 
 .cup {
+  display: flex;
+  justify-content: center;
   width: 35%;
   height: 250px;
-  border: black 1px solid;
 }
 
 .paybutton {
   width: 25%;
-  height: 80px;
-  border: 1px solid black;
+  height: 100px;
+  border-radius: 15px;
+  background-color: rgb(140, 233, 224);
   margin-left: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 3px 3px 9px 2px #504f4f;
+  color: #ffffff;
+  text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
 }
 
 .addons-status {
   background-color: rgb(83, 80, 80);
   margin: 10px;
   width: 30%;
-  border: 1px solid black;
+
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -100,7 +100,6 @@ body {
 .cups-status {
   margin: 10px;
   width: 30%;
-  border: 1px solid black;
 }
 
 .cup-status {
@@ -109,34 +108,36 @@ body {
   justify-content: space-around;
   width: 100%;
   height: 50%;
+  font-size: xx-large;
+  font-weight: 900;
 }
 
 .milk {
   height: 100%;
   width: 50px;
   background-color: blanchedalmond;
-  transition: 0.5s ease;
+  transition: 1.5s ease;
 }
 
 .cherry {
   height: 100%;
   width: 50px;
   background-color: darkred;
-  transition: 0.5s ease;
+  transition: 1.5s ease;
 }
 
 .vanilla {
   height: 100%;
   width: 50px;
   background-color: khaki;
-  transition: 0.5s ease;
+  transition: 1.5s ease;
 }
 
 .banana {
   height: 100%;
   width: 50px;
   background-color: gold;
-  transition: 0.5s ease;
+  transition: 1.5s ease;
 }
 
 .monitor {
@@ -148,7 +149,6 @@ body {
 
 .screen {
   width: 100%;
-  border: 1px black solid;
   height: 50px;
 }
 
@@ -164,3 +164,13 @@ body {
   font-weight: 700;
 }
 
+.coffe-cup {
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.muted {
+  background-color: gray;
+  pointer-events: none;
+}
