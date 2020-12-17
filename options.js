@@ -37,15 +37,15 @@ export let options = {
         price:25
     },
     cherrysyrop: {
-        count: 500,
+        count: 50,
         volume:50,
         price:35
     },
     vanillasyrop: {
-        count: 500
+        count: 50
     },
     bananasyrop: {
-        count: 500
+        count: 50
     }
 
 }

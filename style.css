@@ -12,7 +12,7 @@ body {
 
 .muted {
   background-color: gray;
-  cursor: none;
+  pointer-events: none;
 }
 
 .header-section {
