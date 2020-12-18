@@ -67,6 +67,7 @@ body {
   background-color: wheat;
   box-shadow: 3px 3px 9px 2px #504f4f;
   color: #1d1b1b;
+  border: solid rgb(163, 163, 163) 4px;
 }
 
 .cup-section {
@@ -98,6 +99,7 @@ body {
   box-shadow: 3px 3px 9px 2px #504f4f;
   color: #030101;
   font-weight: bold;
+  border: solid rgb(163, 163, 163) 4px;
 }
 
 .addons-status {
@@ -129,8 +131,14 @@ body {
   width: 50px;
   border: 2px solid black;
   text-align: center;
-  background-color: blanchedalmond;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 250, 144, 1) 100%
+  );
   transition: 1.5s ease;
+  border-radius: 10px;
 }
 
 .cherry {
@@ -138,8 +146,15 @@ body {
   width: 50px;
   border: 2px solid black;
   text-align: center;
-  background-color: darkred;
+  background: rgb(255, 65, 65);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 65, 65, 1) 0%,
+    rgba(59, 0, 0, 1) 100%
+  );
+  color: antiquewhite;
   transition: 1.5s ease;
+  border-radius: 10px;
 }
 
 .vanilla {
@@ -147,8 +162,14 @@ body {
   width: 50px;
   border: 2px solid black;
   text-align: center;
-  background-color: khaki;
+  background: rgb(255, 136, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 136, 0, 1) 0%,
+    rgba(255, 252, 0, 1) 100%
+  );
   transition: 1.5s ease;
+  border-radius: 10px;
 }
 
 .banana {
@@ -156,8 +177,14 @@ body {
   width: 50px;
   border: 2px solid black;
   text-align: center;
-  background-color: gold;
+  background: rgb(241, 255, 98);
+  background: linear-gradient(
+    0deg,
+    rgba(241, 255, 98, 1) 0%,
+    rgba(255, 252, 0, 1) 100%
+  );
   transition: 1.5s ease;
+  border-radius: 10px;
 }
 
 .monitor {
@@ -214,7 +241,8 @@ body {
 }
 
 .coffee-image {
-  margin: 5px;
+  border: 2px white solid;
+  margin: 3px;
   margin-top: 25px;
   border-radius: 20px;
 }
