@@ -23,8 +23,11 @@ var customDrink = false;
 var interval = 0;
 var audioCoffee = new Audio();
 var audioDone = new Audio();
+var audioButton = new Audio();
+audioButton.preload = 'auto';
 audioCoffee.preload = 'auto';
 audioDone.preload = 'auto';
+audioButton.src = './audioButton.mp3';
 audioCoffee.src = './audioCoffe.mp3';
 audioDone.src = './audioDone.mp3';
 
@@ -77,6 +80,7 @@ function showScreen() {
 }
 
 function acceptPayment() {
+  audioButton.play();
   if (drink.cupSelect != "") {
     drink.selectedCup.count--;
     showOptionChange();
@@ -345,6 +349,7 @@ function muteAll() {
 }
 
 function addMainDrink() {
+  audioButton.play();
   checkStatus();
   resetDrink();
   let keyName = this.dataset.key;
@@ -375,6 +380,7 @@ function addMainDrink() {
 }
 
 function addAdditionalDrink() {
+  audioButton.play();
   checkStatus();
   let keyName = this.dataset.key;
   if (keyName == "milk") {
