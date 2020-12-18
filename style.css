@@ -89,7 +89,12 @@ body {
   width: 20%;
   height: 90px;
   border-radius: 15px;
-  background-color: wheat;
+  background: rgb(61, 224, 0);
+  background: radial-gradient(
+    circle,
+    rgba(61, 224, 0, 1) 0%,
+    rgba(8, 117, 36, 1) 100%
+  );
   margin-top: 30px;
   margin-left: 10px;
   display: flex;
@@ -139,6 +144,7 @@ body {
   );
   transition: 1.5s ease;
   border-radius: 10px;
+  text-shadow: black 0 0 4px;
 }
 
 .cherry {
@@ -155,6 +161,7 @@ body {
   color: antiquewhite;
   transition: 1.5s ease;
   border-radius: 10px;
+  text-shadow: black 0 0 4px;
 }
 
 .vanilla {
@@ -170,6 +177,7 @@ body {
   );
   transition: 1.5s ease;
   border-radius: 10px;
+  text-shadow: black 0 0 4px;
 }
 
 .banana {
@@ -185,6 +193,7 @@ body {
   );
   transition: 1.5s ease;
   border-radius: 10px;
+  text-shadow: black 0 0 4px;
 }
 
 .monitor {
@@ -226,6 +235,7 @@ body {
   color: white;
   font-size: x-large;
   font-weight: 700;
+  text-shadow: black 0 0 4px;
 }
 
 .coffe-cup {

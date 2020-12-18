@@ -21,6 +21,12 @@ var img = "";
 var cupIs = true;
 var customDrink = false;
 var interval = 0;
+var audioCoffee = new Audio();
+var audioDone = new Audio();
+audioCoffee.preload = 'auto';
+audioDone.preload = 'auto';
+audioCoffee.src = './audioCoffe.mp3';
+audioDone.src = './audioDone.mp3';
 
 milkIndicator.innerHTML = `${options.milk.count}мл`;
 bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
@@ -157,9 +163,13 @@ function showImg() {
 function changeProgress() {
   progressBar.style.width = "100%";
   progressBar.style.transition = `${interval / 1000}.0s`;
+  audioCoffee.play();
   setTimeout(() => {
     progressBar.innerHTML = "<p>Ваш напиток готов!</p>";
     showCup();
+  }, interval);
+  setTimeout(() => {
+    audioDone.play();
   }, interval);
   milkIndicator.innerHTML = `${options.milk.count}мл`;
   bananaIndicator.innerHTML = `${options.bananasyrop.count}мл`;
