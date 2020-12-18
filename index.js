@@ -165,7 +165,7 @@ function changeProgress() {
   progressBar.style.transition = `${interval / 1000}.0s`;
   audioCoffee.play();
   setTimeout(() => {
-    progressBar.innerHTML = "<p>Ваш напиток готов!</p>";
+    progressBar.innerHTML = "<p>Your drink is ready!</p>";
     showCup();
   }, interval);
   setTimeout(() => {
@@ -178,7 +178,7 @@ function changeProgress() {
 }
 
 function showCup() {
-  cup.innerHTML = "<img class = 'coffe-cup' src = './cup.png' />";
+  cup.innerHTML = "<img class = 'coffe-cup' src = './finalcup.png' />";
   cup.addEventListener("click", () => {
     resetDrink();
   });
