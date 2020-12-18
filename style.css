@@ -79,7 +79,12 @@ body {
   background-color: wheat;
   box-shadow: 3px 3px 9px 2px #504f4f;
   color: #1d1b1b;
-  border: solid rgb(163, 163, 163) 4px;
+  border: double rgb(0, 0, 0) 10px;
+}
+
+.button:active {
+  background-color: rgb(192, 164, 111);
+
 }
 
 .cup-section {
@@ -123,6 +128,10 @@ body {
   color: #030101;
   font-weight: bold;
   border: solid rgb(163, 163, 163) 4px;
+}
+
+.paybutton:active {
+  background: rgb(32, 102, 7);
 }
 
 .addons-status {
