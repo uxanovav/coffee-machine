@@ -5,6 +5,7 @@ const screen = document.querySelector(".screen");
 const cancelButton = document.querySelector(".cancel-button");
 const cup = document.querySelector(".cup");
 const pay = document.querySelector(".paybutton");
+const imageCup = document.querySelector(".image-cup");
 const middleCupCounter = document.querySelector("#middlecup-count");
 const bigCupCounter = document.querySelector("#bigcup-count");
 const progressBar = document.querySelector(".progress-bar");
@@ -16,6 +17,7 @@ const vanillaIndicator = document.querySelector(".vanilla");
 const vanillaBankVolumePerc = options.vanillasyrop.count * 0.01;
 const bananaIndicator = document.querySelector(".banana");
 const bananaBankVolumePerc = options.bananasyrop.count * 0.01;
+var img = "";
 var cupIs = true;
 var customDrink = false;
 var interval = 0;
@@ -102,32 +104,54 @@ function createDrink() {
   options.bananasyrop.count -= drink.totalBananaSyrVolume;
   options.vanillasyrop.count -= drink.totalVanillaSyrVolume;
   options.milk.count -= drink.totalMilkVolume;
-  switch (drink.mainDrink) {
-    case "espresso":
-      interval = 3000;
-      break;
-    case "latte":
-      interval = 3000;
-      break;
-    case "сappuccino":
-      interval = 3000;
-      break;
-    case "bananalatte":
-      interval = 5000;
-      break;
-    case "vanillaсappuccino":
-      interval = 5000;
-      break;
-    case "flatwhite":
-      interval = 5000;
-      break;
-  }
-  if (customDrink) {
-    interval = 8000;
-  }
+  setImageAndInterval();
   changeProgress();
   checkStatus();
   muteAll();
+  pay.classList.add("muted");
+}
+
+function setImageAndInterval() {
+  if (drink.mainDrink == "" && drink.totalMilkVolume > 0) {
+    img = "./milk.jpg";
+    showImg();
+  }
+  if (drink.mainDrink != "") {
+    switch (drink.mainDrink) {
+      case "espresso":
+        interval = 3000;
+        img = "./espresso.jpg";
+        break;
+      case "latte":
+        interval = 3000;
+        img = "./kofe-latte.jpg";
+        break;
+      case "сappuccino":
+        interval = 3000;
+        img = "./cappuccino.jpg";
+        break;
+      case "bananalatte":
+        interval = 5000;
+        img = "./bananalatte.jpg";
+        break;
+      case "vanillaсappuccino":
+        interval = 5000;
+        img = "./vcap.jpg";
+        break;
+      case "flatwhite":
+        interval = 5000;
+        img = "./flat.jpg";
+        break;
+    }
+    if (customDrink) {
+      interval = 8000;
+    }
+    showImg();
+  }
+}
+
+function showImg() {
+  imageCup.innerHTML = `<img src=${img} class="coffee-image"  width = 100% height = "100px">`;
 }
 
 function changeProgress() {
@@ -144,8 +168,8 @@ function changeProgress() {
 }
 
 function showCup() {
-  cup.innerHTML = "<img class = 'coffe-cup' src = './cup.png' />"
-  cup.addEventListener('click',() =>{
+  cup.innerHTML = "<img class = 'coffe-cup' src = './cup.png' />";
+  cup.addEventListener("click", () => {
     resetDrink();
   });
 }
@@ -164,13 +188,15 @@ function resetDrink() {
   progressBar.innerHTML = "";
   progressBar.style.transition = `0s`;
   cup.innerHTML = "";
-  cup.removeEventListener("click",resetDrink,false);
+  cup.removeEventListener("click", resetDrink, false);
   interval = 0;
   customDrink = false;
   checkStatus();
+  imageCup.innerHTML = "";
 }
 
 function checkStatus() {
+  setImageAndInterval();
   mainDrinkButtons.forEach((element) => {
     element.classList.remove("muted");
   });
